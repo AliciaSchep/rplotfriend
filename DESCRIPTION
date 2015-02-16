@@ -1,0 +1,10 @@
+Package: rplotfriend
+Type: Package
+Title: Functions to help with plotting using ggplot
+Version: 1.0
+Date: 2015-02-16
+Author: Alicia Schep
+Maintainer: Alicia Schep <rplotfriend@aschep.com>
+Description: Functions for making, aligning, editing ggplots.  Made for my own personal use.
+License: MIT
+Imports: ggplot2, grid, gtable, reshape2, scales

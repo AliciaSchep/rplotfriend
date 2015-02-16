@@ -1,0 +1,4 @@
+#ignore Rproj
+*.RProj*
+.RProj*
+Read-and-delete-me
