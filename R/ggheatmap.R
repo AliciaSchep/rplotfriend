@@ -1,8 +1,3 @@
-#Get stuff from "pretty.R"
-#script.dir <- dirname(sys.frame(1)$ofile)
-#source(paste(script.dir,'/pretty.R',collapse="",sep=""))
-#source('/lab//alicia/plot_utils/r-plot-friend/pretty.R')
-
 #' Makes heatmap
 #'
 #' @param X matrix with values to plot as heatmap
