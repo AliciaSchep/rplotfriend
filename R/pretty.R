@@ -4,7 +4,7 @@
 #' @param base_family
 #' @return ggplot2 theme
 #' @export
-pub_theme <-function(base_size = 8, base_family="helvetica"){
+pub_theme <-function(base_size = 8, base_family="Helvetica"){
   theme(line = element_line(colour = "black", size = 0.5, linetype = 1, 
                             lineend = "butt"), 
         rect = element_rect(fill = "white", colour = "black", size = 0.5, linetype = 1), 
