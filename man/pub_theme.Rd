@@ -4,7 +4,7 @@
 \alias{pub_theme}
 \title{Theme for scientific publication}
 \usage{
-pub_theme(base_size = 8, base_family = "helvetica")
+pub_theme(base_size = 8, base_family = "Helvetica")
 }
 \arguments{
 \item{base_size}{}

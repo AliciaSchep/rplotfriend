@@ -16,6 +16,6 @@ list of gtables
 Force widths of sub-elements of plots to be equal
 }
 \seealso{
-\code{\link{align_plots_hor}} and \code{\link{plot_custom_grid}}
+\code{\link{align_plots_vert}} and \code{\link{plot_custom_grid}}
 }
 

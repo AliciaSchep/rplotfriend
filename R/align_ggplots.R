@@ -92,7 +92,7 @@ insert.unit <- function (x, values, after = length(x)) {
 #' @param heights the heights of each row (must correspond to nrow)
 #' @param widths  the width of each plot in output (must correspond to ncol)
 #' @return If plot is True, then makes plot and returns gtable of plot invisibly.  Else, just returns gtable
-#' @seealso \code{\link{align_plots_vert}} and \code{\link{plot_custom_grid}}
+#' @seealso \code{\link{align_plots_vert}} and \code{\link{align_plots_hor}}
 #' @export
 plot_custom_grid <-function(..., nrow = 1, ncol = 1, heights = NA, widths = NA, plot = T){
   inputList <- list(...)
@@ -166,7 +166,7 @@ plot_custom_grid <-function(..., nrow = 1, ncol = 1, heights = NA, widths = NA, 
 #'
 #' @param ... some ggplots (or gtables)
 #' @return list of gtables
-#' @seealso \code{\link{align_plots_hor}} and \code{\link{plot_custom_grid}}
+#' @seealso \code{\link{align_plots_vert}} and \code{\link{plot_custom_grid}}
 #' @export
 force_widths_equal<-function(...){
   inputList <- list(...)

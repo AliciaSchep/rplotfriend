@@ -25,6 +25,6 @@ If plot is True, then makes plot and returns gtable of plot invisibly.  Else, ju
 Make a custom grid of plots
 }
 \seealso{
-\code{\link{align_plots_vert}} and \code{\link{plot_custom_grid}}
+\code{\link{align_plots_vert}} and \code{\link{align_plots_hor}}
 }
 
