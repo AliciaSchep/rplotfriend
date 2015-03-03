@@ -89,6 +89,7 @@ pretty_scientific <- function(l) {
   post <- format(as.numeric(sapply(l, function(x) substr(x,gregexpr("e",x)[[1]][1]+1,nchar(x)))))
   # combine prefix and suffix with plotmath
   out <- sapply(1:length(l), function(x) paste(pre[x],"%*%10^",post[x],sep="",collapse=""))
+  out[which(pre=="")]=NA
   # return as expression
   return(parse(text=out))
 }
