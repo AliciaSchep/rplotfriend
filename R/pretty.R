@@ -117,7 +117,7 @@ order_of_magnitude <- function(x){
 #' @export
 pretty_scale_format <- function(l){
   digits = order_of_magnitude(max(l)) - order_of_magnitude(min(diff(l))) + 2
-  l = round(l, digits = digits)
+  l = signif(l, digits = digits)
   if (max(l)>1000){
     return(pretty_scientific(l))
   }
