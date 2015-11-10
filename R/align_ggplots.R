@@ -8,7 +8,9 @@
 #' @seealso \code{\link{align_plots_vert}} and \code{\link{plot_custom_grid}}
 #' @export
 align_plots_hor <- function (..., widths = NA, plot=T) {
+
   inputList <- list(...)
+  
   if (all(sapply(inputList, inherits,"gg"))){
     grobsList <- lapply(inputList,ggplotGrob)
   }
@@ -19,7 +21,7 @@ align_plots_hor <- function (..., widths = NA, plot=T) {
   out <- Reduce(function(x, y) gtable:::cbind_gtable(x, y, "first"), grobsList[-1], grobsList[[1]])
   out$heights <- do.call(grid::unit.pmax, lapply(grobsList, "[[", "heights"))
   if (!is.na(widths[1])){
-    out$widths[out$layout$l[grepl("panel", out$layout$name)]] <- lapply(widths, function(x) unit(x,"null"))
+    out$widths[out$layout$l[grepl("panel", out$layout$name)]] <- lapply(widths, function(x) grid::unit(x,"null"))
   }
   if (plot){
     grid::grid.newpage()
@@ -50,7 +52,7 @@ align_plots_vert <- function (..., heights = NA, plot = T) {
   out <- Reduce(function(x, y) gtable:::rbind_gtable(x, y, "first"), grobsList[-1], grobsList[[1]])
   out$widths <- do.call(grid::unit.pmax, wl <- lapply(grobsList, "[[", "widths"))
   if (!is.na(heights[1])){
-    out$heights[out$layout$t[grepl("panel", out$layout$name)]] <- lapply(heights, function(x) unit(x,"null"))
+    out$heights[out$layout$t[grepl("panel", out$layout$name)]] <- lapply(heights, function(x) grid::unit(x,"null"))
   }
   if (plot){
     grid::grid.newpage()
@@ -63,26 +65,6 @@ align_plots_vert <- function (..., heights = NA, plot = T) {
 }
 
 
-#' Function from gtable utils.r
-#'
-#' @param x list of units
-#' @param values units to add to x
-#' @param after number of elements into x to add values
-#' @return List of units
-#' @export
-insert.unit <- function (x, values, after = length(x)) {
-  lengx <- length(x)
-  if (lengx == 0) return(values)
-  if (length(values) == 0) return(x)
-  
-  if (after <= 0) {
-    unit.c(values, x)
-  } else if (after >= lengx) {
-    unit.c(x, values)
-  } else {
-    unit.c(x[1L:after], values, x[(after + 1L):lengx])
-  }
-}
 
 #' Make a custom grid of plots
 #'
@@ -126,7 +108,7 @@ plot_custom_grid <-function(..., nrow = 1, ncol = 1, heights = NA, widths = NA, 
       add$layout$r <- add$layout$r + ncol(row)
       row$layout <- rbind(row$layout, add$layout)
       
-      row$widths <- insert.unit(row$widths, add$widths)
+      row$widths <- gtable:::insert.unit(row$widths, add$widths)
       row$colnames <- c(row$colnames, add$colnames)
       row$heights <- grid::unit.pmax(row$heights, add$heights)
       row$grobs <- append(row$grobs, add$grobs)
@@ -146,7 +128,7 @@ plot_custom_grid <-function(..., nrow = 1, ncol = 1, heights = NA, widths = NA, 
     row$layout$t <- row$layout$t + nrow(out)
     row$layout$b <- row$layout$b + nrow(out)
     out$layout <- rbind(out$layout,row$layout)
-    out$heights <- insert.unit(out$heights, row$heights)
+    out$heights <- gtable:::insert.unit(out$heights, row$heights)
     out$widths <- grid::unit.pmax(out$widths, row$widths)
     out$rownames <- c(out$rownames, row$rownames)
     out$grobs <- append(out$grobs, row$grobs)          

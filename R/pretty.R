@@ -18,12 +18,12 @@ pub_theme <-function(base_size = 8, base_family="Helvetica"){
         axis.ticks = element_line(colour = "black"), 
         axis.title.x = element_text(), 
         axis.title.y = element_text(angle = 90), 
-        axis.ticks.length = unit(0.15, "cm"), 
-        axis.ticks.margin = unit(0.1, "cm"), 
+        axis.ticks.length = grid::unit(0.15, "cm"), 
+        axis.ticks.margin = grid::unit(0.1, "cm"), 
         legend.background = element_rect(colour = NA), 
-        legend.margin = unit(0.2, "cm"), 
+        legend.margin = grid::unit(0.2, "cm"), 
         legend.key = element_blank(), 
-        legend.key.size = unit(1.2, "lines"), 
+        legend.key.size = grid::unit(1.2, "lines"), 
         legend.key.height = NULL, 
         legend.key.width = NULL, 
         legend.text = element_text(size = rel(0.8)), 
@@ -38,7 +38,7 @@ pub_theme <-function(base_size = 8, base_family="Helvetica"){
         panel.border = element_blank(), 
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(), 
-        panel.margin = unit(0.25, "lines"), 
+        panel.margin = grid::unit(0.25, "lines"), 
         panel.margin.x = NULL, 
         panel.margin.y = NULL, 
         strip.background = element_blank(), 
@@ -46,7 +46,7 @@ pub_theme <-function(base_size = 8, base_family="Helvetica"){
         strip.text.y = element_text(angle = -90), 
         plot.background = element_blank(), 
         plot.title = element_text(size = rel(1.2)), 
-        plot.margin = unit(c(0.5, 0.5, 0.25, 0.25), "lines"), complete = TRUE)
+        plot.margin = grid::unit(c(0.5, 0.5, 0.25, 0.25), "lines"), complete = TRUE)
 }
 
 

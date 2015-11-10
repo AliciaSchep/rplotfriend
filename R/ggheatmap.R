@@ -30,7 +30,7 @@ ggheatmap <- function(X, xlabel = NA, ylabel = NA, guide = "Value", name = NA,
       axis.ticks.x = element_blank(),
       axis.ticks.y = element_blank(),
       axis.text.x = element_text(angle=90, vjust = 0.5, hjust = 1),
-      plot.margin = unit(c(0.1,0.1,0.1,0.1),"cm")
+      plot.margin = grid::unit(c(0.1,0.1,0.1,0.1),"cm")
     )
   if (fixed){
     p = p + coord_fixed()
