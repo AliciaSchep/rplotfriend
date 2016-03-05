@@ -7,5 +7,5 @@ Author: Alicia Schep
 Maintainer: Alicia Schep <rplotfriend@aschep.com>
 Description: Functions for making, aligning, editing ggplots.  Made for my own personal use.
 License: MIT
-Imports: grid, gtable, reshape2, scales
+Imports: grid, gtable, reshape2, scales, ggdendro
 Depends: ggplot2

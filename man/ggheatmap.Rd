@@ -5,8 +5,9 @@
 \title{Makes heatmap}
 \usage{
 ggheatmap(X, xlabel = NA, ylabel = NA, guide = "Value", name = NA,
-  colors = c(scales::muted("blue"), "white", scales::muted("red")),
-  limits = NA, fixed = T, guidebreaks = NA)
+  colors = NULL, midpoint = NULL, limits = NA, fixed = FALSE,
+  guidebreaks = NA, cluster_row = FALSE, cluster_col = FALSE,
+  cluster_row_dist = stats::dist, cluster_col_dist = stats::dist)
 }
 \arguments{
 \item{X}{matrix with values to plot as heatmap}
@@ -19,11 +20,21 @@ ggheatmap(X, xlabel = NA, ylabel = NA, guide = "Value", name = NA,
 
 \item{colors}{colors for scale}
 
+\item{midpoint}{midpoint for color scale if 3 colors given}
+
 \item{limits}{limits for y axis}
 
 \item{fixed}{wether x and y axes should be on same scale}
 
 \item{guidebreaks}{breaks for color scale}
+
+\item{cluster_row}{should rows be clustered? (default = FALSE)}
+
+\item{cluster_col}{should columns be clustered? (default = FALSE)}
+
+\item{cluster_row_dist}{distance function for clustering rows (default = stats::dist)}
+
+\item{cluster_col_dist}{distance function for clustering columns (default = stats::dist)}
 
 \item{yabel}{label for y axis}
 }
