@@ -96,13 +96,13 @@ plot_custom_grid <-function(..., nrow = 1, ncol = 1, heights = NA, widths = NA, 
     row <- row.plots[[1]]
     if (!is.na(widths[1])){
       tmp <- unique(row$layout$l[grepl("panel",row$layout$name)])
-      row$widths[tmp] <- list(unit(widths[1],"null"))
+      row$widths[tmp] <- list(grid::unit(widths[1],"null"))
     }
     for (j in 2:ncol){
       add <- row.plots[[j]]
       if (!is.na(widths[1])){
         tmp <- unique(add$layout$l[grepl("panel",add$layout$name)])
-        add$widths[tmp] <- list(unit(widths[j],"null"))
+        add$widths[tmp] <- list(grid::unit(widths[j],"null"))
       }      
       add$layout$l  <- add$layout$l + ncol(row)
       add$layout$r <- add$layout$r + ncol(row)
@@ -117,13 +117,13 @@ plot_custom_grid <-function(..., nrow = 1, ncol = 1, heights = NA, widths = NA, 
   out <- rows[[1]]
   if (!is.na(heights[1])){
     tmp <- unique(out$layout$t[grepl("panel",out$layout$name)])
-    out$heights[tmp] <- list(unit(heights[1],"null"))
+    out$heights[tmp] <- list(grid::unit(heights[1],"null"))
   } 
   for (i in 2:nrow){
     row <- rows[[i]]
     if (!is.na(heights[1])){
       tmp <- unique(row$layout$t[grepl("panel",row$layout$name)])
-      row$heights[tmp] <- list(unit(heights[i],"null"))
+      row$heights[tmp] <- list(grid::unit(heights[i],"null"))
     }    
     row$layout$t <- row$layout$t + nrow(out)
     row$layout$b <- row$layout$b + nrow(out)
