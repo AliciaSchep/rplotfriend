@@ -8,6 +8,7 @@
  $ legend.position: chr "none"
  - attr(*, "class")= chr [1:2] "theme" "gg"
  - attr(*, "complete")= logi FALSE
+ - attr(*, "validate")= logi TRUE
 }}
 \usage{
 no_legend
