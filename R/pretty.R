@@ -1,13 +1,12 @@
 #' Theme for scientific publication
 #'
-#' @param base_size
-#' @param base_family
+#' @param base_size base font size
+#' @param base_family font family
 #' @return ggplot2 theme
 #' @export
 pub_theme <-function(base_size = 8, base_family="Helvetica"){
   theme_bw(base_size, base_family) %+replace%
-    theme(axis.line.x = element_line(colour = "black"),
-          axis.line.y = element_line(colour = "black"), 
+    theme(axis.line = element_line(colour = "black"),
           panel.background = element_blank(), 
           panel.border = element_blank(), 
           panel.grid.major = element_blank(), 
@@ -47,7 +46,7 @@ unclip<-function(gg){
 #'
 #' @param l list of numbers
 #' @return expression with formatted numbers
-#' @seealso \code{\link{pretty_scale_format}} 
+#' @seealso \code{\link{pretty_scale_format}}
 #' @export
 pretty_scientific <- function(l) {
   # format as scientific
@@ -83,15 +82,12 @@ order_of_magnitude <- function(x){
 #'
 #' @param l list of numbers
 #' @return expression with formatted numbers
-#' @seealso \code{\link{pretty_scientific}} 
+#' @seealso \code{\link{pretty_scientific}}
 #' @export
 pretty_scale_format <- function(l){
-  digits = order_of_magnitude(max(l)) - order_of_magnitude(min(diff(l))) + 2
+  digits = max(sapply(l,order_of_magnitude)) - order_of_magnitude(min(diff(l))) + 1
   l = signif(l, digits = digits)
-  if (max(l)>1000){
-    return(pretty_scientific(l))
-  }
-  else if (max(l)<0.001){
+  if (max(sapply(l,order_of_magnitude))>3){
     return(pretty_scientific(l))
   }
   else{return(format(l, nsmall = 0))}

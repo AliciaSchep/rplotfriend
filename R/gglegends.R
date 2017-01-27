@@ -19,9 +19,6 @@ get_legend<-function(gplot, height = NA, width = NA){
 }
 
 #' Add to ggplot to remove legend
-#' 
-#' @param none
-#' @return theme
 #' @export
 no_legend <- theme(legend.position = "none")
 
@@ -31,10 +28,12 @@ no_legend <- theme(legend.position = "none")
 #' @param legends legend grobs
 #' @param height height of column in which legend is added (only use if pos is "right")
 #' @param width width of column in which legend is added (only use if pos is "bottom" or "top")
+#' @param pos position 
 #' @return gtable
 #' @seealso \code{\link{get_legend}} 
 #' @export
-add_legend<-function(gtab, legends, height = NA, width = NA, pos = "right"){
+add_legend<-function(gtab, legends, height = NA, width = NA, pos = c("right","top","bottom")){
+  pos <- match.arg(pos)
   if (pos == "right"){
     if (is.na(width)){
       stop("Must enter width if pos is right")

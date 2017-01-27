@@ -2,7 +2,7 @@
 #'
 #' @param X matrix with values to plot as heatmap
 #' @param xlabel label for x axis
-#' @param yabel label for y axis
+#' @param ylabel label for y axis
 #' @param guide label for guide
 #' @param name title
 #' @param colors colors for scale

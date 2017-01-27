@@ -3,11 +3,12 @@
 #' Aligns a set of plots horizontally.
 #'
 #' @param ... some ggplots (or gtables)
+#' @param plot print plot?
 #' @param widths  the width of each plot in output
 #' @return If plot is True, then makes plot and returns gtable of plot invisibly.  Else, just returns gtable
 #' @seealso \code{\link{align_plots_vert}} and \code{\link{plot_custom_grid}}
 #' @export
-align_plots_hor <- function (..., widths = NA, plot=T) {
+align_plots_hor <- function (..., widths = NA, plot=TRUE) {
 
   inputList <- list(...)
   
@@ -37,10 +38,11 @@ align_plots_hor <- function (..., widths = NA, plot=T) {
 #'
 #' @param ... some ggplots (or gtables)
 #' @param heights  the height of each plot in output
+#' @param plot print plot?
 #' @return If plot is True, then makes plot and returns gtable of plot invisibly.  Else, just returns gtable
 #' @seealso \code{\link{align_plots_hor}} and \code{\link{plot_custom_grid}}
 #' @export
-align_plots_vert <- function (..., heights = NA, plot = T) {
+align_plots_vert <- function (..., heights = NA, plot = TRUE) {
   inputList <- list(...)
   if (all(sapply(inputList, inherits,"gg"))){
     grobsList <- lapply(inputList,ggplotGrob)
@@ -73,10 +75,11 @@ align_plots_vert <- function (..., heights = NA, plot = T) {
 #' @param ncol number of columns
 #' @param heights the heights of each row (must correspond to nrow)
 #' @param widths  the width of each plot in output (must correspond to ncol)
+#' @param plot print plot?
 #' @return If plot is True, then makes plot and returns gtable of plot invisibly.  Else, just returns gtable
 #' @seealso \code{\link{align_plots_vert}} and \code{\link{align_plots_hor}}
 #' @export
-plot_custom_grid <-function(..., nrow = 1, ncol = 1, heights = NA, widths = NA, plot = T){
+plot_custom_grid <-function(..., nrow = 1, ncol = 1, heights = NA, widths = NA, plot = TRUE){
   inputList <- list(...)
   if (length(inputList)<2){
     print("Need to input 2+ ggplot objects!")

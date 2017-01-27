@@ -5,7 +5,16 @@ Version: 1.0
 Date: 2015-02-16
 Author: Alicia Schep
 Maintainer: Alicia Schep <rplotfriend@aschep.com>
-Description: Functions for making, aligning, editing ggplots.  Made for my own personal use.
-License: MIT
-Imports: grid, gtable, reshape2, scales, ggdendro
-Depends: ggplot2
+Description: Functions for making, aligning, editing ggplots. Made for my own
+    personal use.
+License: MIT + file LICENSE
+Imports:
+    grid,
+    gtable,
+    reshape2,
+    scales,
+    ggdendro,
+    stats
+Depends:
+    ggplot2
+RoxygenNote: 5.0.1
